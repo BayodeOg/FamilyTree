@@ -32,8 +32,7 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 800, height: 400)
-                .clipShape(.buttonBorder)
-            
+//                .clipShape(.buttonBorder)
             Text(message)
                 .font(.headline)
                 .fontWeight(.bold)
@@ -43,26 +42,31 @@ struct ContentView: View {
             Spacer()
         }
        
-        HStack {
-            Button("Father") {
-                message = "I am the Father"
-                imageName = "Father"
-            }
-            Button("Mother") {
-                message = "I am the Mother"
-                imageName = "Mother"
-            }
-            Button("Children") {
-                message = "We are the Children"
-                imageName = "Children"
-            }
+        
+            Button("Our Family Tree") {
+                
+                let message1 = "I am the Father"
+                let message2 = "I am the Mother"
+                let message3 = "We are the Children"
+                
+                if message == message1{
+                    message = message2
+                    imageName = "Mother"
+                } else if message == message2 {
+                    message = message3
+                    imageName = "Children"
+                } else {
+                    message = message1
+                    imageName = "Father"
+                }
+                
         }
         
         .foregroundStyle(.white)
         .tint(.blue)
         .buttonBorderShape(.roundedRectangle)
         .buttonStyle(.borderedProminent)
-        .buttonSizing(.flexible)
+//        .buttonSizing(.flexible)
         
         .padding()
     }
